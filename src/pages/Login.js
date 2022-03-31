@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { GiMoneyStack } from 'react-icons/gi';
 import { connect } from 'react-redux';
 import { userAction } from '../actions/index';
+import './Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -43,7 +44,8 @@ class Login extends React.Component {
     const { history, addUser } = this.props;
     return (
       <form>
-        <h1>Login</h1>
+        <GiMoneyStack size={ 100 } color="#90be6d" className="item" />
+        <h1 className="item">Acessar MyWallet</h1>
         <label htmlFor="email">
           <input
             type="email"
@@ -53,6 +55,7 @@ class Login extends React.Component {
             onChange={ this.handleChange }
             placeholder="Email"
             data-testid="email-input"
+            className="item"
           />
         </label>
         <label htmlFor="senha">
@@ -64,16 +67,17 @@ class Login extends React.Component {
             onChange={ this.handleChange }
             placeholder="Senha"
             data-testid="password-input"
+            className="item"
           />
         </label>
         <button
           type="button"
           onClick={ () => { addUser(email); history.push('/carteira'); } }
           disabled={ !isValidate }
+          className="item"
         >
           Entrar
         </button>
-        <Link to="/carteira">Wallet</Link>
       </form>
     );
   }

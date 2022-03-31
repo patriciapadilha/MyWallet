@@ -1,0 +1,50 @@
+header {
+  align-items: center;
+  background-color: rgb(49, 49, 49);
+  color: white;
+  display: flex;
+  height: 150px;
+  justify-content: space-between;
+}
+
+.money-item {
+  margin-left: 2%;
+}
+
+.total-field {
+  display: flex;
+  margin-right: 5%;
+}
+
+.total-field p {
+  margin-right: 10px;
+}
+
+header h3 {
+  margin-left: 5%;
+}
+
+.form-wallet {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  height: 100px;
+}
+
+.form-wallet input {
+  background-color: gray;
+  height: 30px;
+  margin-left: 6px;
+  margin-right: 15px;
+  width: 150px;
+}
+
+.form-wallet select {
+  background-color: gray;
+  height: 30px;
+  margin-left: 6px;
+  margin-right: 15px;
+  width: 150px;
+}

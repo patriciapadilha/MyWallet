@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Form from '../components/Form';
 import { fetchCoins } from '../actions/index';
+import './Wallet.css';
 
 class Wallet extends React.Component {
   componentDidMount() {
