@@ -55,8 +55,10 @@ export function fetchExchange(expenses) {
     dispatch(requestExchange());
     try {
       const resolve = await fetch('https://economia.awesomeapi.com.br/json/all');
-      const data = await resolve.json();
-      const addExchange = [{ ...expenses, exchangeRates: { ...data } }];
+      // const data = await resolve.json();
+      // const exchangeRates = data[currency].ask;
+      const exchangeRates = await resolve.json();
+      const addExchange = { ...expenses, exchangeRates };
       dispatch(receiveExchange(addExchange));
       console.log(addExchange);
     } catch (error) {
