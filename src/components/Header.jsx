@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 class Header extends React.Component {
   render() {
     const { email } = this.props;
-    console.log(this.props);
     return (
       <header>
         <GiMoneyStack size={ 100 } color="#90be6d" className="money-item" />
