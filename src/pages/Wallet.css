@@ -55,25 +55,13 @@ header h3 {
   width: 110px;
 }
 
-.hearder-expenses {
-  display: flex;
+table {
   font-size: small;
-  font-weight: 800;
-  justify-content: space-around;
-  width: 90%;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
 }
 
-.expense {
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-around;
+table thead {
+  color: rgb(66, 65, 65);
 }
-
-.expense p {
-  font-size: medium;
-}
-
-.buttons {
-  align-self: center;
-}
-
