@@ -55,17 +55,6 @@ class Form extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="description">
-          Descrição
-          <input
-            data-testid="description-input"
-            type="text"
-            id="description"
-            name="description"
-            value={ description }
-            onChange={ this.handleChange }
-          />
-        </label>
         <label htmlFor="currency">
           Moeda
           <select
@@ -94,7 +83,7 @@ class Form extends React.Component {
           </select>
         </label>
         <label htmlFor="tag">
-          Tag
+          Categoria
           <select
             data-testid="tag-input"
             id="tag"
@@ -108,6 +97,17 @@ class Form extends React.Component {
             <option>Transporte</option>
             <option>Saúde</option>
           </select>
+        </label>
+        <label htmlFor="description">
+          Descrição
+          <input
+            data-testid="description-input"
+            type="text"
+            id="description"
+            name="description"
+            value={ description }
+            onChange={ this.handleChange }
+          />
         </label>
         <button
           type="button"

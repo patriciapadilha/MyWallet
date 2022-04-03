@@ -57,9 +57,10 @@ header h3 {
 
 .hearder-expenses {
   display: flex;
+  font-size: small;
   font-weight: 800;
   justify-content: space-around;
-  width: 76%;
+  width: 90%;
 }
 
 .expense {

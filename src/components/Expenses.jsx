@@ -7,28 +7,37 @@ class Expenses extends React.Component {
     const { expenses } = this.props;
     return (
       <section>
-        <div className="hearder-expenses">
-          <p>Valor</p>
-          <p>Descrição</p>
-          <p>Moeda</p>
-          <p>Cambio</p>
-          <p>Método de pagamento</p>
-          <p>Tag</p>
-        </div>
-        {expenses.map((expense, key) => (
+        <table>
+          <tr>
+            <th>Descrição</th>
+            <th>Tag</th>
+            <th>Método de pagamento</th>
+            <th>Valor</th>
+            <th>Moeda</th>
+            <th>Câmbio utilizado</th>
+            <th>Valor convertido</th>
+            <th>Moeda de conversão</th>
+            <th>Editar/Excluir</th>
+          </tr>
+        </table>
+        {/* {expenses.map((expense, key) => (
           <div key={ key } className="expense">
-            <p>{ expense.value }</p>
             <p>{ expense.description }</p>
-            <p>{ expense.currency }</p>
-            <p>{ expense.exchangeRates[expense.currency].ask }</p>
-            <p>{ expense.method }</p>
             <p>{ expense.tag }</p>
+            <p>{ expense.method }</p>
+            <p>{ expense.value }</p>
+            <p>{ expense.currency }</p>
+            <p>{ expense.exchangeRates[expense.currency].name }</p>
+            <p>
+              { Number(expense.value) * Number(expense.exchangeRates[expense.currency].ask) }
+            </p>
+            <p>{ expense.exchangeRates[expense.currency].codein }</p>
             <div className="buttons">
               <button type="button">Editar</button>
               <button type="button">Excluir</button>
             </div>
           </div>
-        ))}
+        ))} */}
       </section>
     );
   }
