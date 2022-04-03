@@ -5,12 +5,6 @@ import PropTypes from 'prop-types';
 class Expenses extends React.Component {
   render() {
     const { expenses } = this.props;
-    // console.log(expenses);
-    // console.log(expenses.length > 0 && expenses[0].currency);
-    // console.log(expenses.length > 0 && expenses[0].exchangeRates);
-    // console.log(expenses.length > 0 && expenses[0].exchangeRates[expenses[0].currency]);
-    // console.log(expenses.length > 0 && expenses[0].exchangeRates[expenses[0].currency].ask);
-
     return (
       <section>
         <div className="hearder-expenses">

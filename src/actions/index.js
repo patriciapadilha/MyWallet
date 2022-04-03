@@ -1,8 +1,6 @@
 // Coloque aqui suas actions
 export const userAction = (payload) => ({ type: 'USER_ACTION', payload });
 
-export const addExpenseAction = (payload) => ({ type: 'ADD_EXPENSE_ACTION', payload });
-
 // fetch para pegar as moedas da API
 const REQUEST_COINS = 'REQUEST_COINS';
 const RECEIVE_COINS = 'RECEIVE_COINS';
@@ -66,7 +64,3 @@ export function fetchExchange(expenses) {
     }
   };
 }
-
-// dispatch(receiveExchange(selectedcoin));
-// console.log(selectedcoin);
-// const selectedcoin = data[moeda].bid;

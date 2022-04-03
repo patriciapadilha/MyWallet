@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { addExpenseAction, fetchExchange } from '../actions';
 import { fetchExchange } from '../actions';
 
 class Form extends React.Component {
@@ -20,27 +19,11 @@ class Form extends React.Component {
     this.addExpense = this.addExpense.bind(this);
   }
 
-  // addExpense(expenseObj) {
-  //   const { addExpenseDispatch } = this.props;
-  //   this.setState((previousState) => {
-  //     const newExpense = [...previousState.expenses, expenseObj];
-  //     return {
-  //       expenses: newExpense,
-  //       id: previousState.id + 1,
-  //     };
-  //   }, () => {
-  //     const { expenses } = this.state;
-  //     // fetchExchangeDispatch();
-  //     addExpenseDispatch(expenses);
-  //   });
-  // }
-
   addExpense = () => {
     const { addExpenseDispatch } = this.props;
     this.setState((prevState) => ({
       id: prevState.id + 1,
     }));
-    // const { currency } = this.state;
     addExpenseDispatch(this.state);
     this.setState({
       value: 0,
@@ -128,14 +111,6 @@ class Form extends React.Component {
         </label>
         <button
           type="button"
-          // onClick={ () => this.addExpense({
-          //   id,
-          //   valor,
-          //   descricao,
-          //   moeda,
-          //   pagamento,
-          //   tag,
-          // }) }
           onClick={ this.addExpense }
         >
           Adicionar despesa
@@ -148,7 +123,6 @@ class Form extends React.Component {
 Form.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   addExpenseDispatch: PropTypes.func.isRequired,
-  // fetchExchangeDispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -157,7 +131,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addExpenseDispatch: (expenses) => dispatch(fetchExchange(expenses)),
-  // fetchExchangeDispatch: () => dispatch(fetchExchange()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
