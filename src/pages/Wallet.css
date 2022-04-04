@@ -39,7 +39,9 @@ header h3 {
 .form-wallet input {
   background-color: gray;
   height: 30px;
-  width: 50px;
+  margin-left: 6px;
+  margin-right: 15px;
+  width: 90px;
 }
 
 .form-wallet select {
@@ -52,7 +54,7 @@ header h3 {
 
 .form-wallet button {
   font-size: small;
-  width: 110px;
+  width: 6em;
 }
 
 table {

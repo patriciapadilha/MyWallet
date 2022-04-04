@@ -1,6 +1,8 @@
 // Coloque aqui suas actions
 export const userAction = (payload) => ({ type: 'USER_ACTION', payload });
 
+export const deleteAction = (payload) => ({ type: 'DELETE_ACTION', payload });
+
 // fetch para pegar as moedas da API
 const REQUEST_COINS = 'REQUEST_COINS';
 const RECEIVE_COINS = 'RECEIVE_COINS';
@@ -53,12 +55,9 @@ export function fetchExchange(expenses) {
     dispatch(requestExchange());
     try {
       const resolve = await fetch('https://economia.awesomeapi.com.br/json/all');
-      // const data = await resolve.json();
-      // const exchangeRates = data[currency].ask;
       const exchangeRates = await resolve.json();
       const addExchange = { ...expenses, exchangeRates };
       dispatch(receiveExchange(addExchange));
-      console.log(addExchange);
     } catch (error) {
       dispatch(failedRequestExchange(error));
     }

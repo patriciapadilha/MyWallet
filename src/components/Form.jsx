@@ -12,7 +12,7 @@ class Form extends React.Component {
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: '',
+      tag: 'Alimentação',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,9 +28,6 @@ class Form extends React.Component {
     this.setState({
       value: 0,
       description: '',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
     });
   }
 
