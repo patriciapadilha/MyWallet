@@ -1,13 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchExchange } from '../actions';
+import { connect } from 'react-redux';
+import { changeEditAction } from '../actions/index';
 
-class Form extends React.Component {
+class EditExpense extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: 0,
       value: 0,
       description: '',
       currency: 'USD',
@@ -16,24 +15,18 @@ class Form extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.addExpense = this.addExpense.bind(this);
-  }
-
-  addExpense = () => {
-    const { addExpenseDispatch } = this.props;
-    this.setState((prevState) => ({
-      id: prevState.id + 1,
-    }));
-    addExpenseDispatch(this.state);
-    this.setState({
-      value: 0,
-      description: '',
-    });
+    this.hanbleChangeEdit = this.hanbleChangeEdit.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
+  }
+
+  hanbleChangeEdit() {
+    const { handleEdit, changeEditActionDispatch } = this.props;
+    handleEdit();
+    changeEditActionDispatch(this.state);
   }
 
   render() {
@@ -109,26 +102,29 @@ class Form extends React.Component {
         </label>
         <button
           type="button"
-          onClick={ this.addExpense }
+          onClick={ this.hanbleChangeEdit }
         >
-          Adicionar despesa
+          Editar despesa
         </button>
       </form>
     );
   }
 }
 
-Form.propTypes = {
+EditExpense.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
-  addExpenseDispatch: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  // expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  changeEditActionDispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addExpenseDispatch: (expenses) => dispatch(fetchExchange(expenses)),
+  changeEditActionDispatch: (payload) => dispatch(changeEditAction(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(EditExpense);

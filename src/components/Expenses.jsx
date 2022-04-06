@@ -1,20 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteAction } from '../actions/index';
+import { deleteAction, editAction } from '../actions/index';
 
 class Expenses extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.handleDelete = this.handleDelete.bind(this);
-  // }
+  constructor() {
+    super();
+    this.editClickButton = this.editClickButton.bind(this);
+  }
 
-  // handleDelete(id) {
-  //   const { expenses } = this.props;
-  //   console.log('clicou no', id);
-  //   const expensesFiltered = expenses.filter((expense) => expense.id !== id);
-  //   console.log(expensesFiltered);
-  // }
+  editClickButton(id, exchangeRates) {
+    const { editExpenseDispatch, handleEdit } = this.props;
+    handleEdit();
+    editExpenseDispatch(id, exchangeRates);
+  }
 
   render() {
     const { expenses, deleteExpenseDispatch } = this.props;
@@ -49,7 +48,13 @@ class Expenses extends React.Component {
                 </td>
                 <td>Real</td>
                 <td>
-                  <button type="button">Editar</button>
+                  <button
+                    type="button"
+                    data-testid="edit-btn"
+                    onClick={ () => this.editClickButton(e.id, e.exchangeRates) }
+                  >
+                    Editar
+                  </button>
                   <button
                     type="button"
                     data-testid="delete-btn"
@@ -70,6 +75,8 @@ class Expenses extends React.Component {
 Expenses.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteExpenseDispatch: PropTypes.func.isRequired,
+  editExpenseDispatch: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -78,6 +85,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteExpenseDispatch: (payload) => dispatch(deleteAction(payload)),
+  editExpenseDispatch: (id, exchangeRates) => dispatch(editAction(id, exchangeRates)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expenses);

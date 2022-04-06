@@ -3,6 +3,14 @@ export const userAction = (payload) => ({ type: 'USER_ACTION', payload });
 
 export const deleteAction = (payload) => ({ type: 'DELETE_ACTION', payload });
 
+export const editAction = (id, exchangeRates) => ({
+  type: 'EDIT_ACTION',
+  id,
+  exchangeRates,
+});
+
+export const changeEditAction = (payload) => ({ type: 'CHANGE_EDIT_ACTION', payload });
+
 // fetch para pegar as moedas da API
 const REQUEST_COINS = 'REQUEST_COINS';
 const RECEIVE_COINS = 'RECEIVE_COINS';

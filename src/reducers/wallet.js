@@ -4,6 +4,8 @@ const INITIAL_STATE = {
   errorExchange: '',
   currencies: [],
   expenses: [],
+  id: '',
+  exchange: {},
 };
 
 function walletReducer(state = INITIAL_STATE, action) {
@@ -25,6 +27,22 @@ function walletReducer(state = INITIAL_STATE, action) {
       expenses: state.expenses.filter(
         (expense) => expense.id !== action.payload,
       ) };
+  case 'EDIT_ACTION':
+    // console.log(action.exchangeRates);
+    // console.log(action.id);
+    return { ...state,
+      id: action.id,
+      exchange: action.exchangeRates,
+    };
+  case 'CHANGE_EDIT_ACTION': {
+    state.expenses[state.id] = {
+      id: state.id,
+      ...action.payload,
+      exchangeRates: state.exchange };
+    return { ...state,
+      expenses: [...state.expenses],
+    };
+  }
   default:
     return state;
   }
