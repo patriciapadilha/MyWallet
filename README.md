@@ -21,7 +21,7 @@ Neste projeto foi desenvolvida uma carteira de controle de gastos com conversor 
 * Visualizar uma tabelas com seus gastos;
 * Visualizar o total de gastos convertidos para uma moeda de escolha;
 
-[Deploy do projeto - MyWallet](https://my-wallet-8bzs95e6x-patriciapadilha.vercel.app/) 
+[Deploy do projeto - MyWallet](https://my-wallet-henna.vercel.app/) 
 
 ![Tela Login](images/login.png)
 ![Tela Carteira](images/tela.png)
