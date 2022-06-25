@@ -19,7 +19,7 @@ class Expenses extends React.Component {
     const { expenses, deleteExpenseDispatch } = this.props;
     console.log(expenses);
     return (
-      <section>
+      <section className='table-wrapper'>
         <table>
           <thead>
             <tr>
